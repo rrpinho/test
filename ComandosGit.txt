@@ -1,0 +1,83 @@
+sudo apt install git => Instalar o git na máquina.
+
+git config --global user.name "Your Name" => Configura o nome do usuário.
+git config --global user.email "Your e-mail" => Configura o email do usuário.
+git config --global color.ui true => Configura as cores.
+git config --global core.editor editor => Configura o editor padrão
+git config --global alias.SuaAbreviacao ComandoASerAbreviado => abrevia um comando para ser usado mais facil/rapido.
+
+ls -la => Mostra os arquivos ocultos.
+git init => Inicializa o repositório e verifica todas as mudanças.
+git status => Verifica o status dos arquivos presentes.
+
+git add arquivo => Adiciona o arquivo para ser commitado.
+git add . => Adiciona TODOS os arquivos para serem commitados.
+
+git commit -m "Mensagem" => Commita todos os arquivos que estão no 2º Estágio. Com a mensagem.
+git commit -am "Mensagem" => Adiciona e Commita todos os arquivos.
+
+git log => Verifica as versões.
+git log -p => Mostra o conteudo presente em cada versão.
+git log -p -2 => Apenas os 2 ultimos.
+git log --stat => Mostra os status de alteração de cada versão.
+git log --pretty=oneline => Mostra apenas as versão e suas mensagens.
+git log --pretty=format: "%h -%an, %ar - %cd : %s" => Mostra o %hash - %Usuário que alterou, %Quanto tempo faz desde que foi realizada à alteração - %Quando foi feito o commit : %A mensagem.
+git log --since=2.days => Mostra as alterações feitas nos ultimos 2 dias.
+git log --decorate => Informações sobre Branchs, Tags que foram modificadas.
+git log --author="Nome" => Mostra os logs referentes a um autor especifico.
+git log --graph => Mostra em forma gráfica oque acontece com os Branchs e as versões.
+git log --oneline => Mostra apenas as versões e suas mensagens (Com a Hash encurtada).
+git log --after="2017-7-1" ou "yesterday" => Mostra os commits feitos a partir de uma determinada data.
+git log --grep="Mensagem" => Mostra todos os commits feitos com a Mensagem.
+git log -- "nomeDoArquivo.Extensao" => Mostra todos os commits feitos que foi alterado o arquivo.
+git log -S"linhaDeCodigo" => Mostra todos os commits em que esta linha foi alterada/adicionada/removida...
+git log NomeDoBranch..NomeDeOutroBranch => Mostra todos os commits feito entre o NomeDoBranch até NomeDeOutroBranch.
+
+git shortlog => Mostra em ordem os autores, qtd commits e as mensagens.
+git shortlog -sn => Mostra apenas as pessoas e a quantidade de commits de cada um.
+
+git show EndereçoHash => Mostra detalhadamente as mudanças que foram feitas naquele commit.
+
+git diff => Antes de commitar, Mostra detalhadamente as mudanças que foram feitas.
+git diff --name-only => Mostra apenas o nome dos arquivos que foram modificados
+
+git stash => Salva os arquivos que possuem modificação no stash, para que se possa commitar sem levar essa modificação (Ainda não finalizada ou não se deseja enviar ainda).
+git stash list => Mostra todos os stashs criados.
+git stash clear => Limpa tudo que tiver no stash.
+git stash apply => Retorna os arquivos que estão salvos no stash para serem commitados.
+
+git checkout EndereçoDoCommit => Retorna para a versão do endereço.
+git checkout Arquivo => Desfaz a motificação no arquivo.
+
+git branch NomeDoBranch => Cria um branch.
+git checkout -b NomeDoBranch => Cria um Branch (Ramificação) e move para este branch criado.
+git checkout NomeDoBranch => Move para o branch.
+git merge NomeDoBranch => Uni o branch ao maste(principal), criando um novo commit e mantendo o historico cronologico.
+git rebase NomeDoBranch =>
+git branch -D NomeDoBranch => Deleta o branch
+
+git reset HEAD => Retorna todos os arquivos que foram add para serem modificados.
+git reset HEAD arquivo => Retorna o arquivo para o estágio anterior.
+git reset --soft EndereçoHashDoAnterior => Deleta o commit mas os arquivos estão prontos para serem commitados.
+git reset --mixed EndereçoHashDoAnterior => Deleta o commit mas os arquivos ficam no estágio de modificados
+git reset --hard EndereçoHashDoAnterior => Deleta o commit juntos com qualquer mudança que foi feito nele.
+git reset HEAD~"numero" --soft => "numero" = quantidade de commits à serem retornados. soft = voltar o commit, mas manter os aquivos(caso queira modificar antes de commitar).
+git reset HEAD~"numero" --hard => hard = voltar o commit, e apaga os arquivos continos neles junto.
+
+git revert EndereçoHash => Cria um novo log revertendo oque foi feito nessa hash. Para posteriormente modificar os arquivos. Não perde do histórico as mudanças.
+git branch => verifica as vesoes que estão à frente da atual (quando é usado para voltar versoes ai aparece algo no "branch").
+
+git remote add NomeSimbolico(origin) ChaveSSHDoMeuGitHub => Linka meu repositório local com o do Cloud.
+git remote rm NomeSimbolico(origin) => Remove um link remoto.
+git remote rename NomeSimbolicoAtual(origin) NomeSimbolicoNovo(newOrigin) => Renomeia o link remoto
+git remote => Mostra os links ativos.
+git remote -v => Mostra mais detalhes como o endereço.
+git push NomeSimbolico(origin) BranchMaster(master) => Upa para o GitHub.
+
+git tag -a Versao(1.0.0) -m "Texto" => Adiciona uma tag ao seu versionamento.
+git tag => Mostra todas as tags criadas.
+git tag -d Versao => Deleta a tag
+git push NomeSimbolico(origin) BranchMaster(master) --tags => Upa as tags para o GitHub.
+git push NomeSimbolico(origin) :Versao => Apaga do repositório remoto (GitHub) a tag.
+
+git clone EndereçoSSH NomePasta => Clona um repositório do GitHub.
